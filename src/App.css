@@ -1,0 +1,269 @@
+/* ── Kenya AI Bill Portal — Design System ── */
+/* Tokens from Stitch/Material You design guide */
+:root {
+  --primary: #296a4d;
+  --primary-container: #448365;
+  --on-primary: #ffffff;
+  --on-primary-container: #000703;
+  --primary-fixed: #aff1cd;
+  --on-primary-fixed: #002113;
+  --on-primary-fixed-variant: #095137;
+  --secondary-container: #cbe6d4;
+  --on-secondary-container: #50685a;
+  --surface: #f8faf5;
+  --surface-dim: #d8dbd6;
+  --surface-container: #ecefe9;
+  --surface-container-low: #f2f4ef;
+  --surface-container-high: #e7e9e4;
+  --on-surface: #191c1a;
+  --on-surface-variant: #404943;
+  --outline: #707973;
+  --outline-variant: #bfc9c1;
+  --inverse-surface: #2e312e;
+  --inverse-on-surface: #eff1ec;
+  --inverse-primary: #93d4b2;
+  --font-headline: 'Public Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-headline); font-weight: 700; line-height: 1.2; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+input, select, textarea { font-family: var(--font-body); font-size: 14px; }
+input::placeholder, textarea::placeholder { font-size: 13px; color: var(--outline); }
+
+/* ── Material Symbols — canonical definition ── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Form inputs — consistent sizing ── */
+.form-input {
+  width: 100%;
+  background: var(--surface-container);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--on-surface);
+  outline: none;
+  transition: border-color 0.15s;
+  display: block;
+}
+.form-input:focus { border-color: var(--primary); }
+.form-input::placeholder { font-size: 13px; color: var(--outline); }
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--outline);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+/* ── Chips / Tags ── */
+.chip {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary-container); color: var(--on-primary);
+  padding: 11px 22px; border-radius: 12px;
+  font-family: var(--font-headline); font-size: 14px; font-weight: 700;
+  border: none; cursor: pointer; transition: opacity 0.15s;
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid var(--outline-variant);
+  color: var(--on-surface);
+  padding: 11px 22px; border-radius: 12px;
+  font-family: var(--font-headline); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background 0.15s;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-secondary:hover { background: var(--surface-container-low); }
+
+/* ── Page headers (reused across Explorer, Classifier, Glossary, About) ── */
+.page-header {
+  background: linear-gradient(160deg, #052e16 0%, #064e31 55%, #166534 100%);
+  color: white;
+  padding: 40px 24px 36px;
+}
+.page-header-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-bottom: 8px;
+}
+.page-header h1 {
+  font-family: var(--font-headline);
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 800; letter-spacing: -0.3px;
+  color: white;
+}
+.page-header p { font-size: 14px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+
+/* ── Section cards (Explorer, Classifier) ── */
+.section-card {
+  background: white;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  overflow: hidden;
+  border-left: 4px solid transparent;
+  transition: border-left-color 0.15s;
+}
+.section-card.expanded { border-left-color: var(--primary); }
+.section-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+
+/* ── Filter / search bar ── */
+.filter-bar {
+  background: white;
+  border-bottom: 1px solid #e2e8e0;
+  padding: 14px 24px;
+  position: sticky; top: 60px; z-index: 50;
+}
+.search-input-wrap {
+  position: relative; margin-bottom: 12px;
+}
+.search-input-wrap .material-symbols-outlined {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 18px; color: var(--outline);
+}
+.search-input-wrap input {
+  width: 100%;
+  padding: 9px 14px 9px 38px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  outline: none;
+}
+.search-input-wrap input::placeholder { font-size: 13px; color: var(--outline); }
+.filter-tag {
+  padding: 4px 10px; border-radius: 6px;
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  border: 1px solid var(--outline-variant);
+  background: white; color: var(--on-surface-variant);
+  cursor: pointer; transition: all 0.1s;
+  white-space: nowrap;
+}
+.filter-tag.active {
+  border-color: var(--primary);
+  background: #f0fdf4; color: var(--primary); font-weight: 700;
+}
+
+/* ── Part header in Explorer ── */
+.part-header {
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 8px; margin-bottom: 12px;
+}
+.part-label-badge {
+  background: var(--primary); color: white;
+  font-family: var(--font-body); font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 3px; letter-spacing: 0.08em;
+}
+.part-label-badge + h2 {
+  font-family: var(--font-headline); font-size: 18px; font-weight: 700;
+  color: var(--on-surface);
+}
+
+/* ── Section number badge ── */
+.sec-num-badge {
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  color: var(--primary);
+  background: #f0fdf4; border: 1px solid #bbf7d0;
+  border-radius: 6px; padding: 4px 8px;
+  text-align: center; min-width: 44px; flex-shrink: 0;
+}
+
+/* ── Risk tier colours ── */
+.risk-unacceptable { background: #fef2f2; border-left: 5px solid #dc2626; }
+.risk-high { background: #fff7ed; border-left: 5px solid #ea580c; }
+.risk-limited { background: #fffbeb; border-left: 5px solid #d97706; }
+.risk-minimal { background: #f0fdf4; border-left: 5px solid #16a34a; }
+
+/* ── Disclaimer box ── */
+.disclaimer-box {
+  background: #fffbeb; border: 1px solid #fde68a;
+  border-left: 4px solid #d97706; border-radius: 8px;
+  padding: 14px 16px; display: flex; gap: 10px;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: #f8fafc; border-top: 1px solid #e2e8f0;
+  padding: 24px;
+}
+.site-footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+}
+.footer-logo { font-family: var(--font-headline); font-size: 13px; font-weight: 700; color: #166534; }
+.footer-copy { font-family: var(--font-body); font-size: 11px; color: #94a3b8; margin-top: 3px; }
+.footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.footer-links span { font-family: var(--font-body); font-size: 11px; color: #94a3b8; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .desktop-nav, .desktop-actions { display: none !important; }
+  .mobile-actions { display: flex !important; }
+}
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-grid .hero-image-col { display: none; }
+  .pillars-grid { grid-template-columns: 1fr !important; }
+  .participation-grid { grid-template-columns: 1fr !important; }
+  .about-bio-grid { grid-template-columns: 1fr !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .page-header { padding: 28px 16px 24px; }
+  .filter-bar { padding: 12px 16px; top: 56px; }
+}
+@media (max-width: 640px) {
+  .stats-bar { grid-template-columns: repeat(3, 1fr) !important; }
+  .filter-tags-row { overflow-x: auto; flex-wrap: nowrap !important; padding-bottom: 4px; }
+}
+@media (max-width: 380px) {
+  .stats-bar { grid-template-columns: repeat(2, 1fr) !important; }
+}
