@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Home from "./components/Home";
 import Explorer from "./components/Explorer";
 import RiskClassifier from "./components/RiskClassifier";
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/glossary" element={<Glossary />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
